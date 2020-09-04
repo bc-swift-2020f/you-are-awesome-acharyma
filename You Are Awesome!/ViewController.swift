@@ -11,21 +11,21 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print("👍 loaded")
+        print("LOADDED")
     }
     @IBAction func messageButtonPressed(_ sender: UIButton) {
-        messageLabel.text = "Hello There"
+        messageLabel.text = "You Are Awesome!"
         messageLabel.textColor = UIColor.orange
-        print("General Kenobi ✩")
+        imageView.image = UIImage(named: "image0")
     }
     @IBAction func changeMessageAgainPressed(_ sender: UIButton) {
         messageLabel.text = "Inspire Others!"
         messageLabel.textColor = UIColor.blue
-        
     }
     
 
