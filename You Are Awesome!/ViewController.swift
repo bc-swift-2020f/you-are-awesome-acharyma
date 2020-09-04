@@ -16,16 +16,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        messageLabel.text = ""
         print("LOADDED")
     }
     @IBAction func messageButtonPressed(_ sender: UIButton) {
         messageLabel.text = "You Are Awesome!"
         messageLabel.textColor = UIColor.orange
         imageView.image = UIImage(named: "image0")
-    }
-    @IBAction func changeMessageAgainPressed(_ sender: UIButton) {
-        messageLabel.text = "Inspire Others!"
-        messageLabel.textColor = UIColor.blue
     }
     
 
