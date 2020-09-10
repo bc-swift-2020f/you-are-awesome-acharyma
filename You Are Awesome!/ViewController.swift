@@ -12,8 +12,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    var imageNumber = 0
-    var labelNumber = 0
+    var imageNumber = -1
+    var messageNumber = -1
+    let totalNumberOfImages = 9
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,17 +23,9 @@ class ViewController: UIViewController {
         print("LOADED")
     }
     @IBAction func messageButtonPressed(_ sender: UIButton) {
-        /*
-        print(imageNumber)
-        let imageName = "image\(imageNumber)"
-        imageView.image = UIImage(named: imageName)
-
-        imageNumber = imageNumber + 1
-        if(imageNumber == 10){
-            imageNumber = 0
-        }
-         */
-        imageView.image = UIImage(named:"image\(Int.random(in:0...9))")
+        
+        
+        
         
         
         let awesomeMessage = "You Are Awesome!"
@@ -41,31 +34,24 @@ class ViewController: UIViewController {
         let fabulousMessage = "Fabulous? That's You!"
         let geniusMessage = "When the Genius Bar Needs Help, They Call You!"
         let messages = [awesomeMessage, greatMessage, bombMessage, geniusMessage, fabulousMessage]
-        messageLabel.text = messages[Int.random(in: 0...messages.count-1)]
+        var newMessageNumber:Int
+        repeat{
+            newMessageNumber = Int.random(in: 0...messages.count-1)
+        } while messageNumber == newMessageNumber
         
-        /*
-        messageLabel.text = messages[labelNumber]
-        labelNumber += 1
-        if(labelNumber>messages.count-1){
-            labelNumber=0
-        }
-         */
+        messageNumber = newMessageNumber
+        messageLabel.text = messages[messageNumber]
         
-        /*
-        if messageLabel.text == awesomeMessage {
-            messageLabel.text = greatMessage
-            imageView.image = UIImage(named: "image1")
-        }
-        else if messageLabel.text == greatMessage {
-            messageLabel.text = bombMessage
-            messageLabel.textColor = UIColor.orange
-            imageView.image = UIImage(named: "image2")
-        }
-        else {
-            messageLabel.text = awesomeMessage
-            imageView.image = UIImage(named: "image0")
-        }
-         */
+        var newImageNumber:Int
+        repeat{
+            newImageNumber = Int.random(in: 0...totalNumberOfImages)
+        } while newImageNumber == imageNumber
+        
+        imageNumber = newImageNumber
+        
+        imageView.image = UIImage(named:"image\(imageNumber)")
+        
+        
         
     }
     
